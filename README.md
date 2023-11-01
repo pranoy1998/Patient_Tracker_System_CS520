@@ -1,2 +1,2 @@
-# PatientTracker_CS520
-The Patient Tracker git repo for CS 520 course
+# Patient_Tracker_System_CS520
+The Patient Tracker project git repo for CS 520 course
