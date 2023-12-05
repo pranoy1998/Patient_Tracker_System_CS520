@@ -1,8 +1,8 @@
 package com.fivetwenty.patienttracker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.apache.catalina.User;
+
+import javax.persistence.*;
 
 
 @Entity
@@ -10,7 +10,11 @@ import javax.persistence.Table;
 public class Doctor {
     @Id
     private int doctorid;
-    private int userid; // Reference to UserAccount table
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userid")
+    private UserAccount user;
+
     private String name;
     private String contactinformation;
     private String specialization;
@@ -19,9 +23,9 @@ public class Doctor {
 
     }
 
-    public Doctor(int doctorid, int userid, String name, String contactinformation, String specialization) {
+    public Doctor(int doctorid, UserAccount user, String name, String contactinformation, String specialization) {
         this.doctorid = doctorid;
-        this.userid = userid;
+        this.user = user;
         this.name = name;
         this.contactinformation = contactinformation;
         this.specialization = specialization;
@@ -37,12 +41,12 @@ public class Doctor {
         this.doctorid = doctorid;
     }
 
-    public int getUserid() {
-        return userid;
+    public UserAccount getUserid() {
+        return user;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserid(UserAccount userid) {
+        this.user = user;
     }
 
     public String getName() {
@@ -75,7 +79,7 @@ public class Doctor {
     public String toString() {
         return "Doctor{" +
                 "doctorId=" + doctorid +
-                ", userId=" + userid +
+                ", userId=" + user.getUserId() +
                 ", name='" + name + '\'' +
                 ", contactInformation='" + contactinformation + '\'' +
                 ", specialization='" + specialization + '\'' +

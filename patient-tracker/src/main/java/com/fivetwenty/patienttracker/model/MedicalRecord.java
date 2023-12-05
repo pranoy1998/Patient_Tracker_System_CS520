@@ -2,9 +2,7 @@ package com.fivetwenty.patienttracker.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -19,7 +17,11 @@ public class MedicalRecord {
     private int updatedby;
     private String currentmedication;
     private String previousdiagnosis;
-    private int patientid;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "patientid")
+    private Patient patient;
+
     private LocalDateTime submissiondate;
 
     public MedicalRecord(){
@@ -28,7 +30,7 @@ public class MedicalRecord {
 
     public MedicalRecord(int recordId, String patientNotes, String doctorNotes, byte[] uploadedDocs,
                          String medicalHistory, int updatedBy, String currentMedication,
-                         String previousDiagnosis, int patientId, LocalDateTime submissionDate) {
+                         String previousDiagnosis, Patient patient, LocalDateTime submissionDate) {
         this.recordid = recordId;
         this.patientnotes = patientNotes;
         this.doctornotes = doctorNotes;
@@ -37,7 +39,7 @@ public class MedicalRecord {
         this.updatedby = updatedBy;
         this.currentmedication = currentMedication;
         this.previousdiagnosis = previousDiagnosis;
-        this.patientid = patientId;
+        this.patient = patient;
         this.submissiondate = submissionDate;
     }
 
@@ -107,12 +109,12 @@ public class MedicalRecord {
         this.previousdiagnosis = previousDiagnosis;
     }
 
-    public int getPatientId() {
-        return patientid;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientid = patientId;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public LocalDateTime getSubmissionDate() {
@@ -136,7 +138,7 @@ public class MedicalRecord {
                 ", updatedBy=" + updatedby +
                 ", currentMedication='" + currentmedication + '\'' +
                 ", previousDiagnosis='" + previousdiagnosis + '\'' +
-                ", patientId=" + patientid +
+                ", patientId=" + patient.getPatientid() +
                 ", submissionDate=" + submissiondate +
                 '}';
     }

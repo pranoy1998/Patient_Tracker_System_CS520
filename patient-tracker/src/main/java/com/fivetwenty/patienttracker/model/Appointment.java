@@ -10,7 +10,11 @@ public class Appointment {
     @Id
     private int appointmentid;
     private LocalDateTime datetime;
-    private int doctorid;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "doctorid")
+    private Doctor doctor;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patientid")
     private Patient patient;
@@ -19,10 +23,10 @@ public class Appointment {
 
     }
 
-    public Appointment(int appointmentid, LocalDateTime datetime, int doctorid, Patient patientid) {
+    public Appointment(int appointmentid, LocalDateTime datetime, Doctor doctor, Patient patient) {
         this.appointmentid = appointmentid;
         this.datetime = datetime;
-        this.doctorid = doctorid;
+        this.doctor = doctor;
         this.patient = patient;
     }
 
@@ -44,12 +48,12 @@ public class Appointment {
         this.datetime = datetime;
     }
 
-    public int getDoctorid() {
-        return doctorid;
+    public Doctor getDoctorid() {
+        return doctor;
     }
 
-    public void setDoctorid(int doctorid) {
-        this.doctorid = doctorid;
+    public void setDoctorid(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Patient getPatientid() {
@@ -67,7 +71,7 @@ public class Appointment {
         return "Appointment{" +
                 "appointmentId=" + appointmentid +
                 ", dateTime=" + datetime +
-                ", doctorId=" + doctorid +
+                ", doctorId=" + doctor.getDoctorId() +
                 ", patientId=" + patient.getPatientid() +
                 '}';
     }
