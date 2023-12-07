@@ -8,5 +8,5 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MedicalRecordRepository extends CrudRepository<MedicalRecord, Integer> {
-    List<MedicalRecord> ofPatientid(Integer patientid);
+    List<MedicalRecord> findByPatientid(Integer patientid);
 }
