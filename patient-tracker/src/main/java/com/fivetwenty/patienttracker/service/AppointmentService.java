@@ -1,6 +1,7 @@
 package com.fivetwenty.patienttracker.service;
 
 import com.fivetwenty.patienttracker.model.Appointment;
+import com.fivetwenty.patienttracker.model.Doctor;
 import com.fivetwenty.patienttracker.model.Patient;
 import com.fivetwenty.patienttracker.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,15 @@ public class AppointmentService {
         // Extract patients from appointments
         return appointments.stream()
                 .map(Appointment::getPatientid)
+                .collect(Collectors.toList());
+    }
+
+    public List<Doctor> getDoctorByPatientId(Integer patientid) {
+        List<Appointment> appointments = appointmentRepository.findByPatientid(patientid);
+
+        // Extract patients from appointments
+        return appointments.stream()
+                .map(Appointment::getDoctorid)
                 .collect(Collectors.toList());
     }
 }
