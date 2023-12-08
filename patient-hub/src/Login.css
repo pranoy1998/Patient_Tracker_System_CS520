@@ -84,7 +84,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 5px;
   position: relative;
-  top: 8%;
+  top: 6%;
 }
 
 .Auth-form-content {
@@ -116,7 +116,7 @@ label {
   /* margin-top: 6%; */
   position: absolute;
   align-items: center;
-  top:15%;
+  top:13%;
 }
 
 .login{
