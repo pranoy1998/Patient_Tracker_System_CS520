@@ -1,0 +1,24 @@
+.rounded-rectangle {
+    /* width: 200px; */
+    height: 100px;
+    background-color: lightblue;
+    border-radius: 10px; /* Adjust the border-radius to control the roundness */
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .day-task-rounded-rectangle{
+     /* width: 200px; */
+     height: 10px;
+     background-color: grey;
+     border-radius: 5px; /* Adjust the border-radius to control the roundness */
+     margin-right: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+  }
+  .container {
+    display: flex;
+    width: 400px;
+  }
