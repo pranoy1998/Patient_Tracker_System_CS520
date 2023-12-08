@@ -11,27 +11,30 @@ const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
+  const [loginsuccess, setSuccess] = useState('');
   const navigate = useNavigate();
-  var loginsuccess = 1;
 
   const handleLogin = () => {
-      
-      var response = "Failure";
+ 
+      var response = "Success";
     
       if(response == "Failure"){
-        loginsuccess = 0;
+        alert("Please check....wrong credentials entered");
+        //setSuccess(0);
+        navigate('.');
+        return;
       }
 
-      if(response == "Success"){
-        loginsuccess = 1;
-      }
+      // if(response == "Success"){
+      //   setSuccess(1);
+      // }
 
       if(userType == "Patient"){
         const targetUrl = '/PatientLanding';
         navigate(targetUrl);
       }
 
-      if(userType == "patient"){
+      if(userType == "Doctor"){
         const targetUrl = '/DoctorLanding';
         navigate(targetUrl);
       }
@@ -163,6 +166,9 @@ const Login = ({ onLogin }) => {
         </div>
       </form>
     </div>
+    {}
+    
+    {/* {if(loginsuccess == "0")alert(loginsuccess);} */}
 
     </div>
 
