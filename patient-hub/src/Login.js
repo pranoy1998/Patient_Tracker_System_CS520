@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
-import { useHistory ,useNavigate } from 'react-router-dom';
+import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-router-dom';
 //import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';
 import PatientLanding from './Patient_Landing';
@@ -17,7 +17,15 @@ const Login = ({ onLogin }) => {
   const handleLogin = () => {
  
       var response = "Success";
-    
+      const patient_unique_id = "12321";
+
+      // const history = useHistory();
+
+      // const handleNavigate = () => {
+      //   // Pass the variable in the state object
+      //   history.push('/PatientLanding', { unique_id: patient_unique_id });
+      // };
+
       if(response == "Failure"){
         alert("Please check....wrong credentials entered");
         //setSuccess(0);
@@ -31,12 +39,12 @@ const Login = ({ onLogin }) => {
 
       if(userType == "Patient"){
         const targetUrl = '/PatientLanding';
-        navigate(targetUrl);
+        navigate(targetUrl,{state:{id : patient_unique_id}});
       }
 
       if(userType == "Doctor"){
         const targetUrl = '/DoctorLanding';
-        navigate(targetUrl);
+        navigate(targetUrl, {state:{id : patient_unique_id}});
       }
 
     // //Redirecting based on userType
