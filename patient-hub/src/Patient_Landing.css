@@ -69,9 +69,9 @@ body {
     .maincontent{
         /* background-color: black; */
         position: absolute;
-        top: 62px;
+        top: 75px;
         left: 17%;
-        right: 0px;
+        right: 10px;
         bottom: 0px;
         /* margin-left: 50px; */
     }
