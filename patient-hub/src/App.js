@@ -42,6 +42,7 @@ function App() {
         <Route exact path="/" element={<Login/>}/>
         <Route path='/PatientLanding' exact={true} element={<PatientLanding/>}/>
         <Route path='/DoctorLanding' exact={true} element={<DoctorLanding/>}/>
+        <Route path='/Appointments' exact={true} element={<Appointments/>}/>
       </Routes>
     </Router>
 

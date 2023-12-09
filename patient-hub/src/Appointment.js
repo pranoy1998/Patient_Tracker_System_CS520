@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 
 // SLOT COMPONENT
 function DayTask({inputTime,inputPatientName,inputPatientId}){
@@ -60,6 +61,10 @@ function Appointments({ inputTaskList }) {
   // Initialize state in the child component
   const [data, setData] = useState(inputTaskList);
   // Sample data array
+
+  const location = useLocation();
+  console.log(location.state.message);
+
   const sampleTaskList= 
     [
         {

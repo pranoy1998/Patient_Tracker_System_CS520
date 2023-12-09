@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import './Patient_Landing.css'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 const PatientLanding = ({}) => {
 
@@ -23,9 +24,11 @@ const PatientLanding = ({}) => {
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Appointments</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        <Link to="/" style={{ textDecoration: 'none' }}>
+        <a class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Logout</span>
         </a>
+        </Link>
       </div>
   </nav>
 
