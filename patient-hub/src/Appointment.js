@@ -62,8 +62,8 @@ function Appointments({ inputTaskList }) {
   const [data, setData] = useState(inputTaskList);
   // Sample data array
 
-  const location = useLocation();
-  console.log(location.state.message);
+//   const location = useLocation();
+//   console.log(location.state.message);
 
   const sampleTaskList= 
     [

@@ -19,14 +19,14 @@ const PatientLanding = ({}) => {
     {/* <div class="position-sticky"> */}
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>My Info</span>
+          <span>My Info</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Appointments</span>
+          <span>Appointments</span>
         </a>
         <Link to="/" style={{ textDecoration: 'none' }}>
         <a class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Logout</span>
+          <span>Logout</span>
         </a>
         </Link>
       </div>

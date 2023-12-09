@@ -1,5 +1,14 @@
 body {
     background-color: #fbfbfb;
+    background-image: url('../public/background_logo.png');
+    background-size: cover;
+    /* background-repeat: repeat; */
+    /* width: 100%; */
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
     }
     @media (min-width: 991.98px) {
     main {
@@ -39,20 +48,20 @@ body {
     }
 
     .navbar{
-        background-color: #f9e9de;
-        border: 2px solid black;
+        /* background-color: #f9e9de; */
+        border: 0.5px solid black;
         padding: 10px;
         box-sizing: border-box;
     }
 
     .navbar-brand{
-        margin-left: 2%;
+        margin-left: 4%;
     }
 
     #sidebarMenu{
-        background-color: #f9e9de;
+        /* background-color: #f9e9de; */
         margin-top: 4%;
-        border: 2px solid black;
+        border: 0.5px solid black;
         padding: 10px;
         box-sizing: border-box;
     }
@@ -64,6 +73,7 @@ body {
 
     .main{
         position: relative;
+        /* background-color: blue; */
     }
 
     .maincontent{

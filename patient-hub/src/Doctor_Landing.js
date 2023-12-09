@@ -32,22 +32,22 @@ const DoctorLanding = ({}) => {
     {/* <div class="position-sticky"> */}
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Daily Schedule</span>
+          <span>Daily Schedule</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Appointments</span>
+          <span>Appointments</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Patients</span>
+          <span>Patients</span>
         </a>
-        <Link to="/Appointments" style={{ textDecoration: 'none' }} state={{message:'Hey!'}}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Logout</span>
+          <span>Logout</span>
         </button>
         </Link>
       </div>
   </nav>
-
+  {/* state={{message:'Hey!'}} */}
   {/* <Link to={{ pathname: '/', state: {message: 'Hey!'} }}></Link> */}
 
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
