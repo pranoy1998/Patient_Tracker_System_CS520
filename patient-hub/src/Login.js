@@ -15,14 +15,20 @@ const Login = ({ onLogin }) => {
   var [loginsuccess, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  // const location = useLocation();
+  //const location = useLocation();
   // //if(location.state){
-  //   //console.log(location.state);
+     //console.log(location.state);
   // //}
 
   const handleLogin = () => {
- 
-      var response = "Success";
+
+
+      if(username == "Pranoy"){
+        var response = "Success";
+      }else{
+        var response = "Failure";
+      }
+
       const patient_unique_id = "12321";
 
       // const history = useHistory();
@@ -44,12 +50,12 @@ const Login = ({ onLogin }) => {
 
       if(userType == "Patient"){
         const targetUrl = '/PatientLanding';
-        navigate(targetUrl,{state:{id : patient_unique_id}});
+        navigate(targetUrl,{state:{id : patient_unique_id, UI: "Landing"}});
       }
 
       if(userType == "Doctor"){
         const targetUrl = '/DoctorLanding';
-        navigate(targetUrl, {state:{id : patient_unique_id}});
+        navigate(targetUrl, {state:{id : patient_unique_id, UI: "Landing"}});
       }
 
     // //Redirecting based on userType

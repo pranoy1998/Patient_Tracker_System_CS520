@@ -13,10 +13,12 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import './Patient_Landing.css'
+import Appointments from './Appointment';
 
 const DoctorLanding = ({}) => {
   
   const location = useLocation();
+  //console.log(location.state);
   const id = location.state.id;
   //alert(id);
 
@@ -25,30 +27,40 @@ const DoctorLanding = ({}) => {
   //   navigate('/PatientLanding');
   // };  
 
+  const myState = {
+    id: id,
+    UI: ""
+  };
+
   return (
     <div class="main">
 
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
     {/* <div class="position-sticky"> */}
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+
+        <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Daily Schedule</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        </button>
+        
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment"}}>
+        <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Appointments</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        </button>
+        </Link>
+
+        <button className="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Patients</span>
-        </a>
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        </button>
+
+        <Link to='/' style={{ textDecoration: 'none' }}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Logout</span>
         </button>
         </Link>
+
       </div>
   </nav>
-  {/* state={{message:'Hey!'}} */}
-  {/* <Link to={{ pathname: '/', state: {message: 'Hey!'} }}></Link> */}
 
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
@@ -61,7 +73,7 @@ const DoctorLanding = ({}) => {
     </nav>
 
     <div class="maincontent">
-    <h1>Component Loading........</h1>
+    {location.state.UI == "Appointment" ? <Appointments/>:<></>}
     </div>
   </div>
   );
