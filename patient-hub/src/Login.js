@@ -6,13 +6,19 @@ import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-rout
 //import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';
 import PatientLanding from './Patient_Landing';
 import DoctorLanding from './Doctor_Landing';
+//loginsuccess = 1;
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
-  const [loginsuccess, setSuccess] = useState('');
+  var [loginsuccess, setSuccess] = useState('');
   const navigate = useNavigate();
+
+  // const location = useLocation();
+  // //if(location.state){
+  //   //console.log(location.state);
+  // //}
 
   const handleLogin = () => {
  
@@ -27,9 +33,8 @@ const Login = ({ onLogin }) => {
       // };
 
       if(response == "Failure"){
-        alert("Please check....wrong credentials entered");
-        //setSuccess(0);
-        navigate('.');
+        //navigate('.');
+        setSuccess(0);
         return;
       }
 
@@ -168,16 +173,10 @@ const Login = ({ onLogin }) => {
               Submit
             </button>
           </div>
-          {/* <p className="forgot-password text-right mt-2">
-            Forgot <a href="#">password?</a>
-          </p> */}
+          {loginsuccess == 0 && window.location.href == "http://localhost:3000/?" ? <p class="authfailed">User auth failed !....Please try again</p>:<></>}
         </div>
       </form>
     </div>
-    {}
-    
-    {/* {if(loginsuccess == "0")alert(loginsuccess);} */}
-
     </div>
 
   /* /*  { <Routes>

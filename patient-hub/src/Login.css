@@ -131,3 +131,9 @@ label {
   align-items: center;
   flex-direction: column;
 }
+
+.authfailed{
+  color: darkred;
+  margin-top: 10%;
+  margin-left: 10%;
+}
