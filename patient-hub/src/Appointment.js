@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './Appointment.css'
 
 // SLOT COMPONENT
 function DayTask({inputTime,inputPatientName,inputPatientId}){
@@ -9,13 +11,12 @@ function DayTask({inputTime,inputPatientName,inputPatientId}){
     const [patientId, setPatientId] = useState(inputPatientId);
 
     return(
-        <div className="day-task-rounded-rectangle" style={{ height: '20%' }}>
-                <p>{time} | {patientName} {patientId}</p>
+        <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
+            <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <a href="google.com">{patientId}</a></p>
         </div>
     );
 }
 
-// DATE STAMP
 function DateStamp({initDate}){
     // CHANGE IT TO DATE LATER
     const [date, setDate] = useState(initDate);
@@ -30,15 +31,12 @@ function DateStamp({initDate}){
     );
 }
 
-// DATE STAMP
 function Day({inputDate,inputTasks}){
-    // CHANGE IT TO DATE LATER
     const [date, setDate] = useState(inputDate);
     const [tasks, setItem] = useState(inputTasks);
 
-    console.log("Tasks: ",tasks);
     return(
-        <div className="day-appointments-container" style={{ height: '20%' }}>
+        <div /*className="day-appointments-container"*/ style={{ height: '20%' }}>
             <DateStamp initDate={date}/>
         {/* <p>{data.message}</p> */}
         {/* <p>{data.value}</p> */}
@@ -57,84 +55,125 @@ function Day({inputDate,inputTasks}){
     );
 }
 
-function Appointments({ inputTaskList }) {
+function Appointments({ inputTaskList }){
   // Initialize state in the child component
   const [data, setData] = useState(inputTaskList);
   // Sample data array
 
-//   const location = useLocation();
-//   console.log(location.state.message);
+  const location = useLocation();
+  const id = location.state.id;
 
   const sampleTaskList= 
     [
         {
-            id: new Date(2011,11,1).toString(),
+            id: "Tuesday : 11/12/2023",
             value:
             [{
-                time:"9 AM",// improve later
-                patientName:"Alex",
-                patientId:"123"
+                time:"9AM - 10AM",
+                patientName:"A",
+                patientId:"1"
             },
             {
-                time:"10 AM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
+                time:"12PM - 1PM",
+                patientName:"Pranoy Pranoy Dev Dev",
+                patientId:"2"
             },
             {
-                time:"11 AM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
-            },
-            {
-                time:"12 PM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
-            },
-            {
-                time:"1 PM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
+                time:"1PM - 2PM",
+                patientName:"PD",
+                patientId:"3"
             },
         ]
-        },// task list for that day
+        },
         {
-            id: new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
             value:
             [{
-                time:"9 AM",// improve later
-                patientName:"Alex",
-                patientId:"123"
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
             },
             {
-                time:"9 AM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
             }]
-        },// task list for that day
+        },
         {
-            id: new Date(2011,11,3).toString(),
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
             value:
             [{
-                time:"9 AM",// improve later
-                patientName:"Alex",
-                patientId:"123"
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
             },
             {
-                time:"9 AM",// improve later
-                patientName:"Alexis",
-                patientId:"133"
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
             }]
-        },// task list for that day
+        },
+        {
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            value:
+            [{
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
+            },
+            {
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
+            }]
+        },
+        {
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            value:
+            [{
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
+            },
+            {
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
+            }]
+        },
+        {
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            value:
+            [{
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
+            },
+            {
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
+            }]
+        },
+        {
+            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            value:
+            [{
+                time:"9AM - 10AM",
+                patientName:"A'",
+                patientId:"10"
+            },
+            {
+                time:"1PM - 2PM",
+                patientName:"B'",
+                patientId:"11"
+            }]
+        }
     ];
 
 
   const taskList = sampleTaskList; // day wise task list
-  /*
-  {
-    "Monday":[{},{}],// task list for that day
-    "Tuesday":[{},{}],
-  }
-  */
+  
   useEffect(() => {
     // 
   }, [data]);
@@ -144,17 +183,15 @@ function Appointments({ inputTaskList }) {
       {/* <p>{data.message}</p> */}
       {/* <p>{data.value}</p> */}
       {/* Other child component UI */}
-
       {/* INCLUDE DATE COMPONENT */}
       {/* LIST OF SLOTS */}
       {/* <li> */}
+
         {taskList.map(item => (
             <React.Fragment key={item.id}>
                 <Day inputDate={item.id} inputTasks={item.value} />
             </React.Fragment>
-        ))}
-      {/* </li> */}
-      
+        ))}      
     </div>
   );
 }

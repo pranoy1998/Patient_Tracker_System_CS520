@@ -14,6 +14,9 @@ import {
 import { NavLink } from 'react-router-dom';
 import './Patient_Landing.css'
 import Appointments from './Appointment';
+import DailySchedule from './DailySchedule';
+import PatientList from './PatientList';
+import PatientInfo from './PatientInfo';
 
 const DoctorLanding = ({}) => {
   
@@ -35,6 +38,7 @@ const DoctorLanding = ({}) => {
   return (
     <div class="main">
 
+<div>
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
     {/* <div class="position-sticky"> */}
       <div class="list-group">
@@ -61,7 +65,8 @@ const DoctorLanding = ({}) => {
 
       </div>
   </nav>
-
+</div>
+<div className='topnavbar'>
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
         aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +76,7 @@ const DoctorLanding = ({}) => {
         Doctor Portal
       </h1>
     </nav>
-
+</div>
     <div class="maincontent">
     {location.state.UI == "Appointment" ? <Appointments/>:<></>}
     </div>
