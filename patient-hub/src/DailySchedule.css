@@ -3,12 +3,13 @@
     overflow-y: 'auto';
     align-items: 'center'
   }
+
   .day-appointments-container {
     /* justify-content: center; */
     overflow-y: 'auto';
     /* align-items: 'center'; */
     /* height: 100px; */
-    background-color: rgb(139, 217, 243);
+    background-color: white;
     border-radius: 10px; /* Adjust the border-radius to control the roundness */
     margin-right: 10px;
     margin-bottom: 10px;
@@ -16,3 +17,35 @@
     display: flex;
     flex-direction: column;
   }
+
+  .TimeSlot{
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 35%;
+}
+
+.PatientName{
+    /* margin-left: 40px; */
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 43%;
+}
+
+.PatientId{
+    /* margin-left: 40px; */
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.daily-schedule-container{
+    /* overflow: auto; */
+    flex: 1;
+    overflow-y: auto;
+}
