@@ -1,53 +1,86 @@
-import React from 'react';
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import React, { useState, useEffect } from 'react';
+import { MDBTable, MDBTableHead, MDBTableBody, MDBCol } from 'mdb-react-ui-kit';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './PatientList.css'
 
-function Patient({PatientId,PatientName}){
-    const pid = PatientId;
-    const pname= PatientName;
-    console.log("Pid", pid)
-    return(
-        <tr className='custom-divider'>
-          {/* <th scope='row'>1</th> */}
-          <td>{pid}</td>
-          <td>{pname}</td>
-          <td><Link to="/{pid}">View</Link></td>
-        </tr>
-    );
-}
+// function Patient({PatientId,PatientName}){
+//     const pid = PatientId;
+//     const pname= PatientName;
+//     return(
+//         <tr className='custom-divider'>
+//           {/* <th scope='row'>1</th> */}
+//           <td>{pid}</td>
+//           <td>{pname}</td>
+//           <td><Link to="/{pid}">View</Link></td>
+//         </tr>
+//     );
+// }
 
-export default function PatientList(props){
+function PatientList(props){
 
     const id = props.id;
 
-    const plist=[
+    function PatientEntry({inputPatientId,inputPatientName}){
+      const [NamePatient, setPatientName] = useState(inputPatientName);
+      const [IdPatient, setPatientId] = useState(inputPatientId);
+    
+    return(
+        <ul>
+          <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '38%', position: 'relative' ,left:"27%"}}>
+              <p className='PatientListName'><b>Patient Name</b> : {NamePatient}</p> <p className='PatientListId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:IdPatient}}>{IdPatient}</Link></p>
+          </div>
+        </ul>
+      );
+    }
+
+    //Fetch all Patient List....under this Doctor...using Doctor ID
+    const patientlist=[
         {
+            Name:"Pranoy",
             id:"1",
-            PatientName:"Alex",
         },{
+            Name:"Pranoy Pranoy Dev Dev",
             id:"2",
-            PatientName:"Alexis",
         },{
+            Name:"PD",
             id:"3",
-            PatientName:"Alexa",
         }
     ];
-    console.log(plist)
+
   return (
-    <MDBTable align="middle">
-      <MDBTableHead>
+    <div>
+    
+    <MDBCol md="6" style={{marginLeft:"36%" , marginTop:"10px", width:"22%"}}>
+      <div className="active-pink-3 active-pink-4 mb-4">
+        <input className="form-control" type="text" placeholder="--Please search using Name or Id--" aria-label="Search" />
+      </div>
+    </MDBCol>
+
+    {/* <MDBTable align="middle"> */}
+      {/* <MDBTableHead>
         <tr>
           <th scope='col'>#</th>
           <th scope='col'>First</th>
-          <th scope='col'>Last</th>
           <th scope='col'>Handle</th>
         </tr>
-      </MDBTableHead>
-      <MDBTableBody>
-        {plist.map(item =>{
+      </MDBTableHead> */}
+      {/* <MDBTableBody> */}
+        {/* {patientlist.map(item =>{
                 return <Patient PatientId={item.id} PatientName={item.PatientName}></Patient>
-        })}
-      </MDBTableBody>
-    </MDBTable>
+        })} */}
+
+        {patientlist.map(item => (
+            <React.Fragment key={item.id}>
+                <PatientEntry inputPatientId={item.id} inputPatientName={item.Name}/>
+            </React.Fragment>
+        ))}
+
+      {/* </MDBTableBody> */}
+    {/* </MDBTable> */}
+
+    </div>
   );
 }
+
+export default PatientList;
