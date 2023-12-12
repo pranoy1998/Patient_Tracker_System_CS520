@@ -1,0 +1,16 @@
+.PatientTimeSlot{
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 38%;
+}
+
+.DoctorName{
+    /* margin-left: 40px; */
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 57%;
+}
