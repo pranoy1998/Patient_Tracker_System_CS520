@@ -50,7 +50,9 @@ body {
     }
 
     .navbar{
-        background-color: #E1EBEE;
+        /* background-color: #E1EBEE; */
+        background-color: #36669d;
+        background-image: linear-gradient(315deg, #36669d 0%, #d3d3d3 74%);        
         border: 0.5px solid black;
         padding: 10px;
         box-sizing: border-box;

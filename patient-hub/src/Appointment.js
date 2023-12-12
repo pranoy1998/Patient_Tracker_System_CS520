@@ -2,66 +2,66 @@ import React, { useState, useEffect } from 'react';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Appointment.css'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
-// SLOT COMPONENT
-function DayTask({inputTime,inputPatientName,inputPatientId}){
-    // CHANGE IT TO DATE LATER
-    const [time, setTime] = useState(inputTime);
-    const [patientName, setPatientName] = useState(inputPatientName);
-    const [patientId, setPatientId] = useState(inputPatientId);
 
-    return(
-        <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
-            <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <a href="google.com">{patientId}</a></p>
-        </div>
-    );
-}
+function Appointments(props){
 
-function DateStamp({initDate}){
-    // CHANGE IT TO DATE LATER
-    const [date, setDate] = useState(initDate);
+    // Initialize state in the child component
+    // const [data, setData] = useState(inputTaskList);
+    console.log(props.id);
 
-    return(
-        <div className="container">
-             <div >
-             <p>{date.toString()}</p>
+    // SLOT COMPONENT
+    function DayTask({inputTime,inputPatientName,inputPatientId}){
+        // CHANGE IT TO DATE LATER
+        const [time, setTime] = useState(inputTime);
+        const [patientName, setPatientName] = useState(inputPatientName);
+        const [patientId, setPatientId] = useState(inputPatientId);
+    
+        return(
+            <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
+                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:"1234",UI:"PatientInfo"}}>{patientId}</Link></p>
             </div>
-        </div>
-       
-    );
-}
-
-function Day({inputDate,inputTasks}){
-    const [date, setDate] = useState(inputDate);
-    const [tasks, setItem] = useState(inputTasks);
-
-    return(
-        <div /*className="day-appointments-container"*/ style={{ height: '20%' }}>
-            <DateStamp initDate={date}/>
-        {/* <p>{data.message}</p> */}
-        {/* <p>{data.value}</p> */}
-        {/* Other child component UI */}
-
-        {/* INCLUDE DATE COMPONENT */}
-        {/* LIST OF SLOTS */}
-        {/* <li> */}
-            {tasks.map(item => (
-            <ul>
-                <DayTask inputTime={item.time} inputPatientName={item.patientName} inputPatientId={item.patientId}/>
-            </ul>
-            ))}
-        {/* </li> */}
-        </div>
-    );
-}
-
-function Appointments({ inputTaskList }){
-  // Initialize state in the child component
-  const [data, setData] = useState(inputTaskList);
-  // Sample data array
-
-  const location = useLocation();
-  const id = location.state.id;
+        );
+    }
+    
+    function DateStamp({initDate}){
+        // CHANGE IT TO DATE LATER
+        const [date, setDate] = useState(initDate);
+    
+        return(
+            <div className="container">
+                 <div >
+                 <p>{date.toString()}</p>
+                </div>
+            </div>
+           
+        );
+    }
+    
+    function Day({inputDate,inputTasks}){
+        const [date, setDate] = useState(inputDate);
+        const [tasks, setItem] = useState(inputTasks);
+    
+        return(
+            <div /*className="day-appointments-container"*/ style={{ height: '20%' }}>
+                <DateStamp initDate={date}/>
+            {/* <p>{data.message}</p> */}
+            {/* <p>{data.value}</p> */}
+            {/* Other child component UI */}
+    
+            {/* INCLUDE DATE COMPONENT */}
+            {/* LIST OF SLOTS */}
+            {/* <li> */}
+                {tasks.map(item => (
+                <ul>
+                    <DayTask inputTime={item.time} inputPatientName={item.patientName} inputPatientId={item.patientId}/>
+                </ul>
+                ))}
+            {/* </li> */}
+            </div>
+        );
+    }
 
   const sampleTaskList= 
     [
@@ -126,57 +126,15 @@ function Appointments({ inputTaskList }){
                 patientName:"B'",
                 patientId:"11"
             }]
-        },
-        {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
-        },
-        {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
-        },
-        {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
         }
     ];
 
 
   const taskList = sampleTaskList; // day wise task list
   
-  useEffect(() => {
-    // 
-  }, [data]);
+//   useEffect(() => {
+//     // 
+//   }, [data]);
 
   return (
     <div className="daily-schedule-container">

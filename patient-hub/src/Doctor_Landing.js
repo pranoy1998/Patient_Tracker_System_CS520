@@ -21,9 +21,8 @@ import PatientInfo from './PatientInfo';
 const DoctorLanding = ({}) => {
   
   const location = useLocation();
-  //console.log(location.state);
   const id = location.state.id;
-  //alert(id);
+  console.log(location.state);
 
   // const LogOut = () => {
   //   const navigate = useNavigate();
@@ -43,9 +42,11 @@ const DoctorLanding = ({}) => {
     {/* <div class="position-sticky"> */}
       <div class="list-group">
 
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"DailySchedule"}}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Daily Schedule</span>
         </button>
+        </Link>
         
         <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment"}}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
@@ -53,9 +54,11 @@ const DoctorLanding = ({}) => {
         </button>
         </Link>
 
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientList"}}>
         <button className="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Patients</span>
         </button>
+        </Link>
 
         <Link to='/' style={{ textDecoration: 'none' }}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
@@ -78,7 +81,10 @@ const DoctorLanding = ({}) => {
     </nav>
 </div>
     <div class="maincontent">
-    {location.state.UI == "Appointment" ? <Appointments/>:<></>}
+    {location.state.UI == "Appointment" ? <Appointments id={id}/>:<></>}
+    {/* {location.state.UI == "DailySchedule" ? <DailySchedule/>:<></>} */}
+    {/* {location.state.UI == "PatientList" ? <PatientList/>:<></>} */}
+    {/* {location.state.UI == "PatientInfo" ? <PatientInfo/>:<></>} */}
     </div>
   </div>
   );

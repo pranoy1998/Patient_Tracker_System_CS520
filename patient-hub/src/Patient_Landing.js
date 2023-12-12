@@ -4,13 +4,13 @@ import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import './Patient_Landing.css'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import MyInfo from './MyInfo';
+import PatientAppointments from './PatientAppointments';
 
 const PatientLanding = ({}) => {
 
   const location = useLocation();
   const id = location.state.id;
-
-  //alert(id);
 
   return (
     <div class="main">
@@ -18,17 +18,25 @@ const PatientLanding = ({}) => {
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
     {/* <div class="position-sticky"> */}
       <div class="list-group">
+
+        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"MyInfo"}}>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>My Info</span>
         </a>
+        </Link>
+      
+        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment"}}>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Appointments</span>
         </a>
+        </Link>
+      
         <Link to="/" style={{ textDecoration: 'none' }}>
         <a class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Logout</span>
         </a>
         </Link>
+      
       </div>
   </nav>
 
@@ -43,10 +51,12 @@ const PatientLanding = ({}) => {
     </nav>
 
     <div class="maincontent">
-    <h1>Component Loading........</h1>
+      {location.state.UI == "MyInfo" ? <MyInfo id={id}/>:<></>}
+      {location.state.UI == "Appointment" ? <PatientAppointments id={id}/>:<></>}
     </div>
 
   </div>
   );
 };
+
 export default PatientLanding;

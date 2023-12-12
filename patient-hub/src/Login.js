@@ -22,14 +22,13 @@ const Login = ({ onLogin }) => {
 
   const handleLogin = () => {
 
-
+      //Using DB Auth API.....to set up response and id values
       if(username == "Pranoy"){
         var response = "Success";
       }else{
         var response = "Failure";
       }
-
-      const patient_unique_id = "12321";
+      const id = "12321";
 
       // const history = useHistory();
 
@@ -48,14 +47,14 @@ const Login = ({ onLogin }) => {
       //   setSuccess(1);
       // }
 
-      if(userType == "Patient"){
+      if(userType == "Patient" && response == "Success"){
         const targetUrl = '/PatientLanding';
-        navigate(targetUrl,{state:{id : patient_unique_id, UI: "Landing"}});
+        navigate(targetUrl,{state:{id : id, UI: "PatientLanding"}});
       }
 
-      if(userType == "Doctor"){
+      if(userType == "Doctor"  && response == "Success"){
         const targetUrl = '/DoctorLanding';
-        navigate(targetUrl, {state:{id : patient_unique_id, UI: "Landing"}});
+        navigate(targetUrl, {state:{id : id, UI: "DoctorLanding"}});
       }
 
     // //Redirecting based on userType
