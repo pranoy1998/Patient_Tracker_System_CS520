@@ -16,7 +16,10 @@ function Patient({PatientId,PatientName}){
     );
 }
 
-export default function PatientList({patientList}) {
+export default function PatientList(props){
+
+    const id = props.id;
+
     const plist=[
         {
             id:"1",

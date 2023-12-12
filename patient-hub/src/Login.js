@@ -3,10 +3,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-router-dom';
-//import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';
+import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';
 import PatientLanding from './Patient_Landing';
 import DoctorLanding from './Doctor_Landing';
-//loginsuccess = 1;
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');

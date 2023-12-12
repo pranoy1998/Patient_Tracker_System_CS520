@@ -33,9 +33,26 @@ function DateStamp({initDate}){
     );
 }
 
-function DailySchedule({ initData }) {
-  // Initialize state in the child component
-  const [data, setData] = useState(initData);
+function DailySchedule(props){
+
+  const id = props.id;
+
+  const data = {
+      item:  [
+        { id: 9, itemName: 'Task 1' },
+        { id: 10, itemName: 'Task 2' },
+        { id: 11, itemName: 'Task 3' },
+        { id: 12, itemName: 'Task 4' },
+        { id: 1, itemName: 'Task 5' },
+        { id: 2, itemName: 'Task 6' },
+        { id: 3, itemName: 'Task 7' },
+        { id: 4, itemName: 'Task 8' },
+        { id: 5, itemName: 'Task 9' },
+        { id: 6, itemName: 'Task 10' },],
+      date:new Date(2021,11,12)
+    };
+
+ 
   // Sample data array
   const items = data.item;
   const date = data.date;

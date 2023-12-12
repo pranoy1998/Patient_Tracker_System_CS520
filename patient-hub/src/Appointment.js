@@ -4,23 +4,16 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Appointment.css'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
-
 function Appointments(props){
 
-    // Initialize state in the child component
-    // const [data, setData] = useState(inputTaskList);
-    console.log(props.id);
-
-    // SLOT COMPONENT
     function DayTask({inputTime,inputPatientName,inputPatientId}){
-        // CHANGE IT TO DATE LATER
         const [time, setTime] = useState(inputTime);
         const [patientName, setPatientName] = useState(inputPatientName);
         const [patientId, setPatientId] = useState(inputPatientId);
     
         return(
             <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
-                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:"1234",UI:"PatientInfo"}}>{patientId}</Link></p>
+                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:patientId}}>{patientId}</Link></p>
             </div>
         );
     }

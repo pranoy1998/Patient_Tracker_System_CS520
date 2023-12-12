@@ -22,23 +22,12 @@ const DoctorLanding = ({}) => {
   
   const location = useLocation();
   const id = location.state.id;
-  console.log(location.state);
-
-  // const LogOut = () => {
-  //   const navigate = useNavigate();
-  //   navigate('/PatientLanding');
-  // };  
-
-  const myState = {
-    id: id,
-    UI: ""
-  };
 
   return (
     <div class="main">
 
-<div>
-<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+  <div>
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
     {/* <div class="position-sticky"> */}
       <div class="list-group">
 
@@ -67,9 +56,9 @@ const DoctorLanding = ({}) => {
         </Link>
 
       </div>
-  </nav>
-</div>
-<div className='topnavbar'>
+    </nav>
+  </div>
+  <div className='topnavbar'>
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
         aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,15 +68,17 @@ const DoctorLanding = ({}) => {
         Doctor Portal
       </h1>
     </nav>
-</div>
-    <div class="maincontent">
-    {location.state.UI == "Appointment" ? <Appointments id={id}/>:<></>}
-    {/* {location.state.UI == "DailySchedule" ? <DailySchedule/>:<></>} */}
-    {/* {location.state.UI == "PatientList" ? <PatientList/>:<></>} */}
-    {/* {location.state.UI == "PatientInfo" ? <PatientInfo/>:<></>} */}
-    </div>
   </div>
-  );
+  
+  <div class="maincontent">
+    {location.state.UI == "Appointment" ? <Appointments id={id}/>:<></>}
+    {location.state.UI == "DailySchedule" ? <DailySchedule id={id}/>:<></>}
+    {location.state.UI == "PatientList" ? <PatientList id={id}/>:<></>}
+    {location.state.UI == "PatientInfo" ? <PatientInfo id={location.state.patientId}/>:<></>}
+  </div>
+
+</div>
+);
 };
 
 export default DoctorLanding;
