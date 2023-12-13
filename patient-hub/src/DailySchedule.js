@@ -99,7 +99,7 @@ function DailySchedule(props){
     
         return(
             <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
-                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:patientId}}>{patientId}</Link></p>
+                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p><p className='PatientId'><Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:patientId}}>View Record</Link></p>
             </div>
         );
     }

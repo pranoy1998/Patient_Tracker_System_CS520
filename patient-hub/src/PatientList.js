@@ -28,7 +28,7 @@ function PatientList(props){
     return(
         <ul>
           <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '38%', position: 'relative' ,left:"27%"}}>
-              <p className='PatientListName'><b>Patient Name</b> : {NamePatient}</p> <p className='PatientListId'><b>Patient Id</b> : <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:IdPatient}}>{IdPatient}</Link></p>
+              <p className='PatientListName'><b>Patient Name</b> : {NamePatient}</p> <p className='PatientListId'><Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:IdPatient}}>View Record</Link></p>
           </div>
         </ul>
       );
