@@ -177,7 +177,7 @@ const Login = ({ onLogin }) => {
               Submit
             </button>
           </div>
-          {loginsuccess == 0 && window.location.href == "http://localhost:3000/?" ? <p class="authfailed">User auth failed !....Please try again</p>:<></>}
+          {loginsuccess == 0 && window.location.href == "http://localhost:3000/?" ? <p class="authfailed">Invalid Credentials !!....Please try again</p>:<></>}
         </div>
       </form>
     </div>

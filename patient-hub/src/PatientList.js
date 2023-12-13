@@ -48,12 +48,25 @@ function PatientList(props){
         }
     ];
 
+    const [searchInput, setSearchInput] = useState("");
+
+    const handleChange = (e) => {
+      e.preventDefault();
+      setSearchInput(e.target.value);
+    };
+
+    var filteredList = patientlist;
+
+    if (searchInput.length > 0){
+      filteredList = patientlist.filter(patient => patient.Name.includes(searchInput));
+    };
+
   return (
     <div>
     
     <MDBCol md="6" style={{marginLeft:"36%" , marginTop:"10px", width:"22%"}}>
       <div className="active-pink-3 active-pink-4 mb-4">
-        <input className="form-control" type="text" placeholder="--Please search using Name or Id--" aria-label="Search" />
+        <input style={{textAlign: 'center'}} className = "form-control" type = "text" placeholder = " -- Please search using Name -- " aria-label = "Search" onChange={handleChange} value={searchInput} />
       </div>
     </MDBCol>
 
@@ -70,7 +83,8 @@ function PatientList(props){
                 return <Patient PatientId={item.id} PatientName={item.PatientName}></Patient>
         })} */}
 
-        {patientlist.map(item => (
+
+        {filteredList.map(item => (
             <React.Fragment key={item.id}>
                 <PatientEntry inputPatientId={item.id} inputPatientName={item.Name}/>
             </React.Fragment>
