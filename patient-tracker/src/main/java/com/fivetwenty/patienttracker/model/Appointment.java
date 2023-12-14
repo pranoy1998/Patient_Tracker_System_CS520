@@ -19,6 +19,7 @@ public class Appointment {
     @JoinColumn(name = "patientid")
     private Patient patient;
 
+
     public Appointment(){
 
     }
@@ -76,4 +77,3 @@ public class Appointment {
                 '}';
     }
 }
-

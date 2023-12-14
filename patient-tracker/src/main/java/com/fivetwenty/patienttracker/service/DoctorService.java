@@ -1,6 +1,8 @@
 package com.fivetwenty.patienttracker.service;
 
+import com.fivetwenty.patienttracker.model.Appointment;
 import com.fivetwenty.patienttracker.model.Doctor;
+import com.fivetwenty.patienttracker.model.Patient;
 import com.fivetwenty.patienttracker.repository.DoctorRepository;
 import com.fivetwenty.patienttracker.repository.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -29,6 +33,19 @@ public class DoctorService {
     public Doctor getDoctorById(Integer doctorid) {
         return doctorRepository.findById(doctorid)
                 .orElseThrow(() -> new EntityNotFoundException("Doctor not found with ID: " + doctorid));
+    }
+
+    public List<Patient> getPatientsByDoctorId(Long doctorId) {
+        Optional<Doctor> optionalDoctor = doctorRepository.findById(doctorId);
+
+        if (optionalDoctor.isPresent()) {
+            Doctor doctor = optionalDoctor.get();
+            return doctor.getAppointments().stream()
+                    .map(Appointment::getPatient)
+                    .collect(Collectors.toList());
+        } else {
+            throw new EntityNotFoundException("Doctor not found with ID: " + doctorId);
+        }
     }
 
 }

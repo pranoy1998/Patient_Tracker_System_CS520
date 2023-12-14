@@ -6,7 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface AppointmentRepository extends CrudRepository<Appointment, Integer> {
-    List<Appointment> findByDoctorid(Integer doctorid);
-     List<Appointment> findByPatientid(Integer patientid);
+    List<Appointment> findByDoctorDoctorid(Integer doctorid);
+    List<Appointment> findByPatientid(Integer patientid);
+    List<Appointment> getApptByDoctorId(Integer doctorid);
+    List<Appointment> getApptByPatientId(Integer patientid);
+
 }
 

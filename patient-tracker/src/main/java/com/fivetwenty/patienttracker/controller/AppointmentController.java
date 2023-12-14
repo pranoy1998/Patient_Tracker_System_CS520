@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/")
 public class AppointmentController {
 
     private final AppointmentRepository appointmentRepository;
@@ -23,8 +24,32 @@ public class AppointmentController {
     }
 
     @GetMapping("patientsByDoctor/{doctorid}")
-    public ResponseEntity<List<Patient>> getUserById(@PathVariable Integer doctorid) {
+    public ResponseEntity<List<Patient>> getPatientsByDoctorId(@PathVariable Integer doctorid) {
         List<Patient> user = appointmentService.getPatientsByDoctorId(doctorid);
         return ResponseEntity.ok().body(user);
+    }
+    @GetMapping("doctorByPatient/{patientid}")
+    public ResponseEntity<List<Doctor>> getDoctorByPatientId(@PathVariable Integer patientid) {
+        List<Doctor> user = appointmentService.getDoctorsByPatientId(patientid);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping("/doctor/{doctorId}")
+    public ResponseEntity<List<AppointmentSlot>> getAppointmentsByDoctorId(@PathVariable Long doctorId) {
+        try {
+            List<AppointmentSlot> appointmentSlots = appointmentService.getApptByDoctorId(doctorId);
+            return new ResponseEntity<>(appointmentSlots, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<AppointmentSlot>> getAppointmentsByPatientId(@PathVariable Long patientId) {
+        try {
+            List<AppointmentSlot> appointmentSlots = appointmentService.getApptByPatientId(patientId);
+            return new ResponseEntity<>(appointmentSlots, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
