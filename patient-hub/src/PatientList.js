@@ -17,6 +17,20 @@ import './PatientList.css'
 //     );
 // }
 
+    //Fetch all Patient List....under this Doctor...using Doctor ID
+    const patientlist=[
+      {
+          Name:"Pranoy",
+          id:"1",
+      },{
+          Name:"Pranoy Pranoy Dev Dev",
+          id:"2",
+      },{
+          Name:"PD",
+          id:"3",
+      }
+  ];
+
 function PatientList(props){
 
     const id = props.id;
@@ -34,20 +48,6 @@ function PatientList(props){
       );
     }
 
-    //Fetch all Patient List....under this Doctor...using Doctor ID
-    const patientlist=[
-        {
-            Name:"Pranoy",
-            id:"1",
-        },{
-            Name:"Pranoy Pranoy Dev Dev",
-            id:"2",
-        },{
-            Name:"PD",
-            id:"3",
-        }
-    ];
-
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (e) => {
@@ -58,7 +58,7 @@ function PatientList(props){
     var filteredList = patientlist;
 
     if (searchInput.length > 0){
-      filteredList = patientlist.filter(patient => patient.Name.includes(searchInput));
+      filteredList = patientlist.filter(patient => patient.Name.toLowerCase().includes(searchInput.toLowerCase()));
     };
 
   return (
