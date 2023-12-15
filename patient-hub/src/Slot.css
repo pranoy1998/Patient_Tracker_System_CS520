@@ -10,10 +10,10 @@
   }
   .day-task-rounded-rectangle{
      /* width: 200px; */
-     height: 10px;
+     /* height: 10px; */
      background-color: grey;
      border-radius: 5px; /* Adjust the border-radius to control the roundness */
-     margin-right: 10px;
+     /* margin-right: 10px; */
      display: flex;
      align-items: center;
      justify-content: center;
