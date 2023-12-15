@@ -1,0 +1,21 @@
+.input-container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 30%;
+    /* align-items: center; */
+    /* margin-bottom: 8px; Adjust as needed */
+  }
+  
+  .label {
+    margin-bottom: 8px; /* Adjust as needed */
+  }
+  
+  .input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    /* Add more styling as needed */
+  }

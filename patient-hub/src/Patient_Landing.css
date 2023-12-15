@@ -87,6 +87,8 @@ body {
         left: 17%;
         right: 10px;
         bottom: 0px;
+        display: flex;
+        flex-direction: column;
         /* margin-left: 50px; */
         /* overflow: auto; */
         /* scroll-behavior: smooth; */
