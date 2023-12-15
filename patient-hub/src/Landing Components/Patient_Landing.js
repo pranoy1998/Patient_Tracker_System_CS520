@@ -1,11 +1,13 @@
+//PATIENT LANDING UI COMPONENT RENDER
+
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
-import './Patient_Landing.css'
+import '../Styles/Patient_Landing.css'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import PatientAppointments from './PatientAppointments';
-import PatientInfo from './PatientInfo';
+import PatientAppointments from '../NavBar Components/PatientAppointments';
+import PatientInfo from '../NavBar Components/PatientInfo';
 
 const PatientLanding = ({}) => {
 

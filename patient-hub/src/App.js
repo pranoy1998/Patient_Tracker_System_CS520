@@ -1,20 +1,22 @@
+//Main App.js loader
+
 import React from 'react';
-import './App.css';
-import './Slot.css';
-import './DailySchedule.css';
+import './Styles/App.css';
+import './Styles/Slot.css';
+import './Styles/DailySchedule.css';
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
 
-import Login from './Login';
+import Login from './Landing Components/Login';
 
-import PatientLanding from './Patient_Landing';
-import DoctorLanding from './Doctor_Landing';
+import PatientLanding from './Landing Components/Patient_Landing';
+import DoctorLanding from './Landing Components/Doctor_Landing';
 
-import DailySchedule from './DailySchedule';
-import Appointments from './Appointment';
-import PatientList from './PatientList';
-import PatientInfo from './PatientInfo';
+import DailySchedule from './NavBar Components/DailySchedule';
+import Appointments from './NavBar Components/Appointment';
+import PatientList from './NavBar Components/PatientList';
+import PatientInfo from './NavBar Components/PatientInfo';
 
-import PatientAppointments from './PatientAppointments';
+import PatientAppointments from './NavBar Components/PatientAppointments';
 
 function App() {
 

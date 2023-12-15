@@ -1,14 +1,16 @@
+//DOCTOR LANDING UI COMPONENT RENDER
+
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import './Patient_Landing.css'
-import Appointments from './Appointment';
-import DailySchedule from './DailySchedule';
-import PatientList from './PatientList';
-import PatientInfo from './PatientInfo';
+import '../Styles/Patient_Landing.css'
+import Appointments from '../NavBar Components/Appointment';
+import DailySchedule from '../NavBar Components/DailySchedule';
+import PatientList from '../NavBar Components/PatientList';
+import PatientInfo from '../NavBar Components/PatientInfo';
 
 const DoctorLanding = ({}) => {
   

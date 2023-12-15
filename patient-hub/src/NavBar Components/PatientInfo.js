@@ -1,5 +1,7 @@
+//PATIENT INFO VIEW COMPONENT RENDER.....FOR NOTH DOCTOR AND PATIENT VIEW
+
 import React, { useState, useEffect } from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {
@@ -19,7 +21,7 @@ import {
   MDBIcon,
   MDBTextArea
 } from 'mdb-react-ui-kit';
-import './PatientInfo.css'
+import '../Styles/PatientInfo.css'
 
 const SingleTextBox = (props) => {
   const [text, setText] = useState(props.labelValue);
