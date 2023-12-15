@@ -1,7 +1,7 @@
 //DOCTOR LANDING UI COMPONENT RENDER
 
 import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';

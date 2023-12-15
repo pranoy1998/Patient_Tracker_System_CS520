@@ -1,8 +1,9 @@
 //ON LOAD LOGIN UI COMPONENT RENDER
 
 import React, { useEffect, useState } from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import '../Styles/Login.css';
+
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-router-dom';
 import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';

@@ -1,7 +1,9 @@
 //PATIENT LANDING UI COMPONENT RENDER
 
 import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import '../Styles/Patient_Landing.css'

@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/PatientAppointments.css'
+
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 function PatientAppointments(props){
