@@ -19,7 +19,6 @@ function Appointments(props){
     }
     
     function DateStamp({initDate}){
-        // CHANGE IT TO DATE LATER
         const [date, setDate] = useState(initDate);
     
         return(
@@ -37,21 +36,13 @@ function Appointments(props){
         const [tasks, setItem] = useState(inputTasks);
     
         return(
-            <div /*className="day-appointments-container"*/ style={{ height: '20%' }}>
+            <div style={{ height: '20%' }}>
                 <DateStamp initDate={date}/>
-            {/* <p>{data.message}</p> */}
-            {/* <p>{data.value}</p> */}
-            {/* Other child component UI */}
-    
-            {/* INCLUDE DATE COMPONENT */}
-            {/* LIST OF SLOTS */}
-            {/* <li> */}
                 {tasks.map(item => (
                 <ul>
                     <DayTask inputTime={item.time} inputPatientName={item.patientName} inputPatientId={item.patientId}/>
                 </ul>
                 ))}
-            {/* </li> */}
             </div>
         );
     }
@@ -79,7 +70,7 @@ function Appointments(props){
         ]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",
@@ -93,7 +84,7 @@ function Appointments(props){
             }]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",
@@ -107,7 +98,7 @@ function Appointments(props){
             }]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",
@@ -123,21 +114,10 @@ function Appointments(props){
     ];
 
 
-  const taskList = sampleTaskList; // day wise task list
-  
-//   useEffect(() => {
-//     // 
-//   }, [data]);
+  const taskList = sampleTaskList;
 
   return (
     <div className="daily-schedule-container">
-      {/* <p>{data.message}</p> */}
-      {/* <p>{data.value}</p> */}
-      {/* Other child component UI */}
-      {/* INCLUDE DATE COMPONENT */}
-      {/* LIST OF SLOTS */}
-      {/* <li> */}
-
         {taskList.map(item => (
             <React.Fragment key={item.id}>
                 <Day inputDate={item.id} inputTasks={item.value} />

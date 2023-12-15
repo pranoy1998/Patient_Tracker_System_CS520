@@ -1,5 +1,4 @@
 .PatientListName{
-    /* margin-left: 40px; */
     margin-top: 15px;
     border: 1px solid black;
     padding: 10px;
@@ -8,7 +7,6 @@
 }
 
 .PatientListId{
-    /* margin-left: 40px; */
     margin-top: 15px;
     border: 1px solid black;
     padding: 10px;

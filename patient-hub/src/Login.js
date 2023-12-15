@@ -14,14 +14,8 @@ const Login = ({ onLogin }) => {
   var [loginsuccess, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  //const location = useLocation();
-  // //if(location.state){
-     //console.log(location.state);
-  // //}
-
   const handleLogin = () => {
 
-      //Using DB Auth API.....to set up response and id values
       if(username == "Pranoy"){
         var response = "Success";
       }else{
@@ -29,22 +23,10 @@ const Login = ({ onLogin }) => {
       }
       const id = "12321";
 
-      // const history = useHistory();
-
-      // const handleNavigate = () => {
-      //   // Pass the variable in the state object
-      //   history.push('/PatientLanding', { unique_id: patient_unique_id });
-      // };
-
       if(response == "Failure"){
-        //navigate('.');
         setSuccess(0);
         return;
       }
-
-      // if(response == "Success"){
-      //   setSuccess(1);
-      // }
 
       if(userType == "Patient" && response == "Success"){
         const targetUrl = '/PatientLanding';
@@ -55,74 +37,10 @@ const Login = ({ onLogin }) => {
         const targetUrl = '/DoctorLanding';
         navigate(targetUrl, {state:{id : id, UI: "DoctorLanding"}});
       }
-
-    // //Redirecting based on userType
-    // if (userType === 'Patient') {
-    //   history.push('/Patient_Landing');
-    // } else if (userType === 'Doctor') {
-    //   history.push('/Doctor_Landing');
-    // }
   };
 
   return (
-    // <Router>
     <div className='login'>
-    {/* <div className="Banner">
-      <h2>Welcome to the Patient Hub....Tracking health at your fingertips</h2>
-    </div>
-    <div className="login-container">
-      <form>
-        <div className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="username" className="form-label" style={{ marginRight: '9%', fontWeight: 'bold'}}>
-            Username
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            value={username}
-            placeholder="Please enter your username"
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="password" className="form-label" style={{ marginRight: '10%', fontWeight: 'bold' }}>
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            placeholder="Please enter your password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="userType" className="form-label" style={{ marginRight: '9.5%', fontWeight: 'bold' }}>
-            User Type
-          </label>
-          <select
-            className="form-control"
-            id="userType"
-            value={userType}
-            onChange={(e) => setUserType(e.target.value)}
-            required
-          >
-            <option value="" disabled hidden>
-              Please select from below options
-            </option>
-            <option value="Patient">Patient</option>
-            <option value="Doctor">Doctor</option>
-          </select>
-        </div>
-        <button type="button" className="btn btn-primary" onClick={handleLogin}>
-        Login
-        </button>
-      </form>
-    </div> */}
 
     <div className="Banner">
       <h2>Welcome to the Patient Hub....Tracking health at your fingertips</h2>
@@ -182,13 +100,6 @@ const Login = ({ onLogin }) => {
       </form>
     </div>
     </div>
-
-  /* /*  { <Routes>
-        <Route path="/PatientLanding"></Route>
-        <Route path="/DoctorLanding"></Route>
-    </Routes> */
-
-    // </Router> */}
   );
 };
 

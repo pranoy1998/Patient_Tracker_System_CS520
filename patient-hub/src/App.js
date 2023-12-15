@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 import './Slot.css';
 import './DailySchedule.css';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
 
 import Login from './Login';
@@ -16,7 +14,6 @@ import Appointments from './Appointment';
 import PatientList from './PatientList';
 import PatientInfo from './PatientInfo';
 
-import MyInfo from './MyInfo';
 import PatientAppointments from './PatientAppointments';
 
 function App() {
@@ -36,56 +33,10 @@ function App() {
         <Route path='/PatientList' exact={true} element={<PatientList/>}/>
         <Route path='/PatientInfo' exact={true} element={<PatientInfo/>}/>
 
-        <Route path='/MyInfo' exact={true} element={<MyInfo/>}/>
         <Route path='/PatientAppointments' exact={true} element={<PatientAppointments/>}/>
 
       </Routes>
     </Router>
-
-    // <div className="App">
-    //   {/* <Login /> */}
-    //   <Router>
-    //   <div>
-    //     <nav>
-    //       <ul>
-    //         <li>
-    //           <Link to="/">Login</Link>
-    //         </li>
-    //         <li>
-    //           <Link to="/DailySchedule">Daily Schedule</Link>
-    //         </li>
-    //         <li>
-    //           <Link to="/Appointments">Appointments</Link>
-    //         </li>
-    //         <li>
-    //           <Link to="/PatientList">PatientList</Link>
-    //         </li>
-    //         <li>
-    //           <Link to="/PatientInformation">PatientInformation</Link>
-    //         </li>
-    //         {/* <li>
-    //           <Link to="/Login">Contact</Link>
-    //         </li> */}
-    //       </ul>
-    //     </nav>
-
-    //     <hr />
-    //     <Routes>
-    //       <Route path="/" exact component={Login} />
-    //       <Route path="/DailySchedule" element={ds} />
-    //       <Route path="/Appointments" element={aps} />
-    //       <Route path="/PatientList" element={pl}/>
-    //       <Route path="/PatientInformation" element={pi}/>
-    //       {/* <Route path="/patientList/`{var}`" element={aps Input={}} /> */}
-    //     </Routes>
-       
-    //     {/* <Route path="/Login" component={Login} /> */}
-    //   </div>
-    // </Router>
-
-    //   {/* <DailySchedule initData={DailyScheduleData}/> */}
-    // </div>
-
   );
 }
 

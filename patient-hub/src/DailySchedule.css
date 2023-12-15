@@ -5,12 +5,9 @@
   }
 
   .day-appointments-container {
-    /* justify-content: center; */
     overflow-y: 'auto';
-    /* align-items: 'center'; */
-    /* height: 100px; */
     background-color: white;
-    border-radius: 10px; /* Adjust the border-radius to control the roundness */
+    border-radius: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -27,7 +24,6 @@
 }
 
 .PatientName{
-    /* margin-left: 40px; */
     margin-top: 15px;
     border: 1px solid black;
     padding: 10px;
@@ -44,7 +40,6 @@
 }
 
 .daily-schedule-container{
-    /* overflow: auto; */
     flex: 1;
     overflow-y: auto;
 }

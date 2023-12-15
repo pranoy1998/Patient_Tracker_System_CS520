@@ -4,8 +4,8 @@ import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import './Patient_Landing.css'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import MyInfo from './MyInfo';
 import PatientAppointments from './PatientAppointments';
+import PatientInfo from './PatientInfo';
 
 const PatientLanding = ({}) => {
 
@@ -16,10 +16,9 @@ const PatientLanding = ({}) => {
     <div class="main">
 
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
-    {/* <div class="position-sticky"> */}
       <div class="list-group">
 
-        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"MyInfo"}}>
+        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientInfo",patientId:id}}>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>My Info</span>
         </a>
@@ -51,7 +50,7 @@ const PatientLanding = ({}) => {
     </nav>
 
     <div class="maincontent">
-      {location.state.UI == "MyInfo" ? <MyInfo id={id}/>:<></>}
+      {location.state.UI == "PatientInfo" ? <PatientInfo id={id} UI="PatientView"/>:<></>}
       {location.state.UI == "Appointment" ? <PatientAppointments id={id}/>:<></>}
     </div>
 

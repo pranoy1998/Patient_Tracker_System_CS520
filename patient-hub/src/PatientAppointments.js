@@ -20,7 +20,6 @@ function PatientAppointments(props){
     }
     
     function DateStamp({initDate}){
-        // CHANGE IT TO DATE LATER
         const [date, setDate] = useState(initDate);
     
         return(
@@ -69,7 +68,7 @@ function PatientAppointments(props){
         ]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",
@@ -81,7 +80,7 @@ function PatientAppointments(props){
             }]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",
@@ -93,7 +92,7 @@ function PatientAppointments(props){
             }]
         },
         {
-            id: "Thursday : 13/12/2023",//new Date(2011,11,2).toString(),
+            id: "Thursday : 13/12/2023",
             value:
             [{
                 time:"9AM - 10AM",

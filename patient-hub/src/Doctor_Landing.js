@@ -3,14 +3,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import {
-  CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
-  CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem,
-} from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import './Patient_Landing.css'
 import Appointments from './Appointment';
@@ -28,7 +20,6 @@ const DoctorLanding = ({}) => {
 
   <div>
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
-    {/* <div class="position-sticky"> */}
       <div class="list-group">
 
         <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"DailySchedule"}}>
@@ -74,7 +65,7 @@ const DoctorLanding = ({}) => {
     {location.state.UI == "Appointment" ? <Appointments id={id}/>:<></>}
     {location.state.UI == "DailySchedule" ? <DailySchedule id={id}/>:<></>}
     {location.state.UI == "PatientList" ? <PatientList id={id}/>:<></>}
-    {location.state.UI == "PatientInfo" ? <PatientInfo id={location.state.patientId}/>:<></>}
+    {location.state.UI == "PatientInfo" ? <PatientInfo id={location.state.patientId} UI="DoctorView"/>:<></>}
   </div>
 
 </div>

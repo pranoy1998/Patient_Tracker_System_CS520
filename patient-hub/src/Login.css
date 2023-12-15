@@ -1,65 +1,3 @@
-/* .login-container {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
-}*/
-
-/* .input-container {
-  margin: 10px 0;
-}
-
-input {
-  width: 70%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.form-control {
-  max-width: 70%;
-}
-
-.login-container {
-  max-width: 30%;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 5%;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-label{
-  max-width: 70%;
-  margin-top: 2%;
-}
-
-.btn-primary {
-  margin-top: 10%;
-  margin-left: 24%;
-  width: 50%;
-}
-
-.Banner{
-  margin-top: 4%;
-  margin-left: 23%;
-}
-
-.login{
-  /* background-color: lightblue; */
-  /* background-image: url('../public/background_logo.png'); */
-  /* background-size: 'cover'; */
-  /* background-position: 'center'; */
-  /* background-repeat: 'no-repeat'; */
-  /* width: '100%'; */
-  /* height: '100%'; */
-/* } */
-
-
 .App {
   background-color: white;
 }
@@ -113,7 +51,6 @@ label {
 }
 
 .Banner{
-  /* margin-top: 6%; */
   position: absolute;
   align-items: center;
   top:13%;
@@ -123,8 +60,6 @@ label {
   background-color: lightblue;
   background-image: url('../public/background_logo.png');
   background-size: cover;
-  /* background-repeat: repeat; */
-  /* width: 100%; */
   height: 100vh;
   display: flex;
   justify-content: center;
