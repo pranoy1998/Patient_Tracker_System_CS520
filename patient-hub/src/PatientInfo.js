@@ -1,37 +1,26 @@
-import React from 'react';
-import {
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBCheckbox,
-  MDBBtn,
-  MDBIcon
-} from 'mdb-react-ui-kit';
+import React, { useState, useEffect } from 'react';
 
 export default function PatientInfo(props){
 
+  const [file, setFile] = useState()
+
+  function handleChange(event) {
+    setFile(event.target.files[0]);
+  }
+
+  if(file){
+    console.log(file);
+  }
+
   return(
     <div>
-    <h1>Here at Patients Info Page for patientid : {props.id}</h1>
+      <h1>Here at Patients Info Page for patientid : {props.id}</h1>
+
+    <div className="m-3">
+        <input type="file" onChange={handleChange}/>
+        <button type="submit" className="btn btn-outline-primary">Upload</button>
+    </div>
+
     </div>
   );
   }
-  // return (
-  //   <form>
-  //     <MDBRow className='mb-4'>
-  //       <MDBCol>
-  //       <MDBInput label='Example label' id='form1' type='text' />
-  //       </MDBCol>
-  //       <MDBCol>
-  //         <MDBInput id='form3Example2' label='Last name' />
-  //       </MDBCol>
-  //     </MDBRow>
-  //     <MDBInput className='mb-4' type='email' id='form3Example3' label='Email address' />
-  //     <MDBInput className='mb-4' type='password' id='form3Example4' label='Password' />
-
-  //     <MDBBtn type='submit' className='mb-4' block>
-  //       Save
-  //     </MDBBtn>
-  //   </form>
-  // );
-// }
