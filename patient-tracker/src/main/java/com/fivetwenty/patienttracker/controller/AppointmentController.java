@@ -43,10 +43,28 @@ public class AppointmentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/doctor/{doctorId}")
+    public ResponseEntity<List<AppointmentSlot>> getAppointmentsTodayByDoctorId(@PathVariable Long doctorId) {
+        try {
+            List<AppointmentSlot> appointmentSlots = appointmentService.getApptTodayByDoctorId(doctorId);
+            return new ResponseEntity<>(appointmentSlots, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping("/patient/{patientId}")
     public ResponseEntity<List<AppointmentSlot>> getAppointmentsByPatientId(@PathVariable Long patientId) {
         try {
             List<AppointmentSlot> appointmentSlots = appointmentService.getApptByPatientId(patientId);
+            return new ResponseEntity<>(appointmentSlots, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<AppointmentSlot>> getAppointmentsTodayByPatientId(@PathVariable Long patientId) {
+        try {
+            List<AppointmentSlot> appointmentSlots = appointmentService.getApptTodayByPatientId(patientId);
             return new ResponseEntity<>(appointmentSlots, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

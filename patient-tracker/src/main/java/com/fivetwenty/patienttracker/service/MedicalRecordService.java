@@ -28,4 +28,20 @@ public class MedicalRecordService {
         return medicalrecordRepository.findById(medicalRecordId)
                 .orElseThrow(() -> new EntityNotFoundException("Medical Record not found with ID: " + medicalRecordId));
     }
+
+    @Transactional
+    public void uploadDocument(int patientId, byte[] documentData) {
+        // Retrieve or create the medical record for the patient
+        MedicalRecord medicalRecord = medicalRecordRepository.findByPatientId(patientId)
+                .orElseGet(() -> {
+                    Patient patient = new Patient(); 
+                    return new MedicalRecord(patient, null, null, documentData, null, null, null, null);
+                });
+
+        // Update the uploadeddocs field with the new document data
+        medicalRecord.setUploadeddocs(documentData);
+
+        // Save the medical record
+        medicalRecordRepository.save(medicalRecord);
+    }
 }

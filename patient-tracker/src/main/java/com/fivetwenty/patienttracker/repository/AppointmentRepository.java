@@ -9,7 +9,9 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Integ
     List<Appointment> findByDoctorDoctorid(Integer doctorid);
     List<Appointment> findByPatientid(Integer patientid);
     List<Appointment> getApptByDoctorId(Integer doctorid);
+    List<Appointment> getApptTodayByDoctorId(Integer doctorid);
     List<Appointment> getApptByPatientId(Integer patientid);
+    List<Appointment> getApptTodayByPatientId(Integer patientid);
 
 }
 

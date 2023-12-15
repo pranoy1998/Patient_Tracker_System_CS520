@@ -6,6 +6,7 @@ import com.fivetwenty.patienttracker.model.Patient;
 import com.fivetwenty.patienttracker.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -66,6 +67,19 @@ public class AppointmentService {
                 .collect(Collectors.toList());
     }
 
+    public List<Appointment> getApptForTodayByDoctorId(Integer doctorId) {
+    List<Appointment> appointments = appointmentRepository.getApptTodayByDoctorId(doctorId);
+    
+    LocalDate today = LocalDate.now();
+    
+    return appointments.stream()
+            .filter(appointment -> {
+                LocalDate appointmentDate = appointment.getAppointmentDateTime().toLocalDate();
+                return appointmentDate.isEqual(today);
+            })
+            .collect(Collectors.toList());
+}
+
     public List<Appointment> getApptByPatientId(Integer patientId) {
         List<Appointment> appointments = appointmentRepository.getApptByPatientId(patientId);
         
@@ -88,6 +102,20 @@ public class AppointmentService {
                 .map(entry -> new AppointmentSlot(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
+
+    public List<Appointment> getApptTodayByPatientId(Integer patientId) {
+        List<Appointment> appointments = appointmentRepository.getApptTodayByPatientId(patientId);
+    
+        LocalDate today = LocalDate.now();
+    
+        return appointments.stream()
+                .filter(appointment -> {
+                    LocalDate appointmentDate = appointment.getAppointmentDateTime().toLocalDate();
+                    return appointmentDate.isEqual(today);
+                })
+                .collect(Collectors.toList());
+    }
+    
 
 }
 

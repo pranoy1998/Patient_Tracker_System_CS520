@@ -3,6 +3,7 @@ package com.fivetwenty.patienttracker.controller;
 import com.fivetwenty.patienttracker.model.MedicalRecord;
 import com.fivetwenty.patienttracker.repository.MedicalRecordRepository;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,20 @@ public class MedicalRecordController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(uploadedDocuments);
+    }
+
+    @PostMapping("/patient/{patientId}/upload-document")
+    public ResponseEntity<String> uploadDocument(
+            @PathVariable int patientId,
+            @RequestParam("file") MultipartFile file) {
+        try {
+            // Assuming you have a service method to handle the file upload and associate it with the patient
+            medicalRecordService.uploadDocument(patientId, file.getBytes());
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("Document uploaded successfully.");
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload document.");
+        }
     }
 }
 
