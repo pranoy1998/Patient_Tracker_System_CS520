@@ -41,7 +41,7 @@ function PatientAppointments(props){
         const [tasks, setItem] = useState(inputTasks);
     
         return(
-            <div style={{ height: '20%' }}>
+            <div style={{ height: '20%' }} data-testid="test">
                 <DateStamp initDate={date}/>
                 {tasks.map(item => (
                 <ul>
