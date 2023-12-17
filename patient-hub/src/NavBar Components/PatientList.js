@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { MDBTable, MDBTableHead, MDBTableBody, MDBCol } from 'mdb-react-ui-kit';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/PatientList.css'
-import axios from 'axios';
+
 
 function PatientList(props){
 

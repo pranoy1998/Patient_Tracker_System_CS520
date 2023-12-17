@@ -1,7 +1,7 @@
 //PATIENT INFO VIEW COMPONENT RENDER.....FOR NOTH DOCTOR AND PATIENT VIEW
 
 import React, { useState, useEffect } from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {
@@ -24,6 +24,8 @@ import {
 import '../Styles/PatientInfo.css'
 
 const SingleTextBox = (props) => {
+  console.log("Props: ")
+  console.log(props)
   const [text, setText] = useState(props.labelValue);
   var editable = false;
   if(props.UI == 'PatientView' && props.labelInput == 'PATIENT NOTES'){
@@ -70,6 +72,17 @@ const SingleTextBox = (props) => {
           !props.inputTypeTextArea[props.labelInput] && <MDBInput value={props.labelValue}  readOnly={true} />
         }
         {
+          (props.inputTypeTextArea[props.labelInput] && editable) && 
+          <div>
+            <textarea
+              value={text}
+              onChange={handleTextChange}
+              rows="3"
+              cols="63"
+              placeholder={props.labelValue}
+            />
+            <button type="submit" className="btn btn-outline-primary" onClick={saveInfo}>Save Info</button>
+           </div>
           (props.inputTypeTextArea[props.labelInput] && editable) && 
           <div>
             <textarea

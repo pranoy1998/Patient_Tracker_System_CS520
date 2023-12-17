@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/PatientAppointments.css'
+
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 function PatientAppointments(props){
@@ -35,7 +37,7 @@ function PatientAppointments(props){
         const [tasks, setItem] = useState(inputTasks);
 
         return(
-            <div style={{ height: '20%' }}>
+            <div style={{ height: '20%' }} data-testid="test">
                 <DateStamp initDate={date}/>
                 {tasks.map(item => (
                 <ul>
