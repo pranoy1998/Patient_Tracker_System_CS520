@@ -13,6 +13,7 @@ const PatientLanding = ({}) => {
 
   const location = useLocation();
   const id = location.state.id;
+  const token = location.state.token;
 
   return (
     <div class="main">
@@ -20,13 +21,13 @@ const PatientLanding = ({}) => {
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
       <div class="list-group">
 
-        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientInfo",patientId:id}}>
+        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientInfo",patientId:id,token:token}}>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>My Info</span>
         </a>
         </Link>
       
-        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment"}}>
+        <Link to='/PatientLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment",token:token}}>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Appointments</span>
         </a>
@@ -52,8 +53,8 @@ const PatientLanding = ({}) => {
     </nav>
 
     <div class="maincontent">
-      {location.state.UI == "PatientInfo" ? <PatientInfo id={id} UI="PatientView"/>:<></>}
-      {location.state.UI == "Appointment" ? <PatientAppointments id={id}/>:<></>}
+      {location.state.UI == "PatientInfo" ? <PatientInfo id={id} UI="PatientView" token={token}/>:<></>}
+      {location.state.UI == "Appointment" ? <PatientAppointments id={id} token={token}/>:<></>}
     </div>
 
   </div>

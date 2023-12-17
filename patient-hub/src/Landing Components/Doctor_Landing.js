@@ -16,6 +16,7 @@ const DoctorLanding = ({}) => {
   
   const location = useLocation();
   const id = location.state.id;
+  const token = location.state.token;
 
   return (
     <div class="main">
@@ -24,25 +25,25 @@ const DoctorLanding = ({}) => {
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
       <div class="list-group">
 
-        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"DailySchedule"}}>
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"DailySchedule",token:token}}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Daily Schedule</span>
         </button>
         </Link>
         
-        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment"}}>
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"Appointment",token:token}}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Appointments</span>
         </button>
         </Link>
 
-        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientList"}}>
+        <Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:id,UI:"PatientList",token:token}}>
         <button className="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Patients</span>
         </button>
         </Link>
 
-        <Link to='/' style={{ textDecoration: 'none' }}>
+        <Link to='/' style={{ textDecoration:'none'}}>
         <button class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <span>Logout</span>
         </button>
@@ -64,10 +65,10 @@ const DoctorLanding = ({}) => {
   </div>
   
   <div class="maincontent">
-    {location.state.UI == "Appointment" ? <Appointments id={id}/>:<></>}
-    {location.state.UI == "DailySchedule" ? <DailySchedule id={id}/>:<></>}
-    {location.state.UI == "PatientList" ? <PatientList id={id}/>:<></>}
-    {location.state.UI == "PatientInfo" ? <PatientInfo id={location.state.patientId} UI="DoctorView"/>:<></>}
+    {location.state.UI == "Appointment" ? <Appointments id={id} token={token}/>:<></>}
+    {location.state.UI == "DailySchedule" ? <DailySchedule id={id} token={token}/>:<></>}
+    {location.state.UI == "PatientList" ? <PatientList id={id} token={token}/>:<></>}
+    {location.state.UI == "PatientInfo" ? <PatientInfo id={location.state.patientId} UI="DoctorView" token={token}/>:<></>}
   </div>
 
 </div>

@@ -1,13 +1,11 @@
 //ON LOAD LOGIN UI COMPONENT RENDER
-
 import React, { useEffect, useState } from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/Login.css';
 import { useHistory ,useNavigate, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-router-dom';
 import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBInput} from 'mdb-react-ui-kit';
-import PatientLanding from './Patient_Landing';
-import DoctorLanding from './Doctor_Landing';
+import axios from 'axios';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -18,26 +16,38 @@ const Login = ({ onLogin }) => {
 
   const handleLogin = () => {
 
-      if(username == "Pranoy"){
-        var response = "Success";
-      }else{
-        var response = "Failure";
-      }
-      const id = "12321";
+    var id;
+    var token;
+    var response_msg;
 
-      if(response == "Failure"){
-        setSuccess(0);
-        return;
-      }
+    axios.post('http://localhost:8000/login',
+    {
+      username: username,
+      password: password,
+      role: userType
+    }
+    ).then(response => {
+      token = response.data.token;
+      id = response.data.userid;
+      response_msg = response.data.message;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    
+    if(response_msg == "Authentication Failure"){
+      setSuccess(0);
+      return;
+    }
 
-      if(userType == "Patient" && response == "Success"){
+      if(userType == "Patient" && response_msg == "Success" && token){
         const targetUrl = '/PatientLanding';
-        navigate(targetUrl,{state:{id : id, UI: "PatientLanding"}});
+        navigate(targetUrl,{state:{id : id, UI: "PatientLanding" , token : token}});
       }
 
-      if(userType == "Doctor"  && response == "Success"){
+      if(userType == "Doctor"  && response_msg == "Success" && token){
         const targetUrl = '/DoctorLanding';
-        navigate(targetUrl, {state:{id : id, UI: "DoctorLanding"}});
+        navigate(targetUrl, {state:{id : id, UI: "DoctorLanding", token : token}});
       }
   };
 

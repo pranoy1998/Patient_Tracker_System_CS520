@@ -15,21 +15,19 @@ function Appointments(props){
     
         return(
             <div className="day-task-rounded-rectangle" style={{ height: '60px' , backgroundColor : 'white' , width: '60%', position: 'relative' ,left:"17%"}}>
-                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:patientId}}>View Record</Link></p>
+                <p className='TimeSlot'><b>Time Slot</b> : {time}</p> <p className='PatientName'><b>Patient Name</b> : {patientName}</p> <p className='PatientId'><Link to='/DoctorLanding' style={{ textDecoration: 'none' }} state={{id:props.id,UI:"PatientInfo",patientId:patientId,token:props.token}}>View Record</Link></p>
             </div>
         );
     }
     
     function DateStamp({initDate}){
-        const [date, setDate] = useState(initDate);
-    
+        const [date, setDate] = useState(initDate);   
         return(
             <div className="container">
                  <div >
                  <p>{date.toString()}</p>
                 </div>
             </div>
-           
         );
     }
     
@@ -49,74 +47,15 @@ function Appointments(props){
         );
     }
 
-  const sampleTaskList= 
-    [
-        {
-            id: "Tuesday : 11/12/2023",
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A",
-                patientId:"1"
-            },
-            {
-                time:"12PM - 1PM",
-                patientName:"Pranoy Pranoy Dev Dev",
-                patientId:"2"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"PD",
-                patientId:"3"
-            },
-        ]
-        },
-        {
-            id: "Thursday : 13/12/2023",
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
-        },
-        {
-            id: "Thursday : 13/12/2023",
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
-        },
-        {
-            id: "Thursday : 13/12/2023",
-            value:
-            [{
-                time:"9AM - 10AM",
-                patientName:"A'",
-                patientId:"10"
-            },
-            {
-                time:"1PM - 2PM",
-                patientName:"B'",
-                patientId:"11"
-            }]
-        }
-    ];
-
-
-  const taskList = sampleTaskList;
+    const taskList = [];
+    axios.get('http://localhost:8000/doctors/'+props.id+'/appointments',
+    { headers:{token : props.token},params:{id : props.id}}
+    ).then(response => {
+      taskList = response.data.list;
+    })
+    .catch(error => {
+      console.error(error);
+    });
 
   return (
     <div className="daily-schedule-container">

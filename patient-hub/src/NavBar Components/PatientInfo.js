@@ -25,9 +25,40 @@ import '../Styles/PatientInfo.css'
 
 const SingleTextBox = (props) => {
   const [text, setText] = useState(props.labelValue);
+  var editable = false;
+  if(props.UI == 'PatientView' && props.labelInput == 'PATIENT NOTES'){
+    editable = true;
+  }
+  if(props.UI == 'DoctorView' && props.labelInput == 'DOCTOR NOTES'){
+    editable = true;
+  }
+
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
+
+  const saveInfo = () => {
+    if(props.UI == 'DoctorView'){
+      axios.get('http://localhost:8000/patients/' + props.patientId + '/doctornotes',
+  {headers:{token : props.token}, params:{notes : fieldValues[6]}}
+  ).then(response => {
+    //response
+  })
+  .catch(error => {
+    console.error(error);
+  });
+    }else{
+      axios.get('http://localhost:8000/patients/' + props.patientId + '/patientnotes',
+  {headers:{token : props.token}, params:{notes : fieldValues[7]}}
+  ).then(response => {
+    //response
+  })
+  .catch(error => {
+    console.error(error);
+  });
+    }
+
+  }
 
   return(
   <div className='input-container'>
@@ -36,23 +67,31 @@ const SingleTextBox = (props) => {
         <label style={{'font-size': 17.5}}>{props.labelInput}</label>
         <div>
         {
-          !props.inputTypeTextArea[props.labelInput] && <MDBInput value={props.labelValue}  readOnly={props.readOnlyCheck[props.labelInput]} />
+          !props.inputTypeTextArea[props.labelInput] && <MDBInput value={props.labelValue}  readOnly={true} />
         }
         {
-          (props.inputTypeTextArea[props.labelInput] && !props.readOnlyCheck[props.labelInput]) && <textarea
-          value={text}
-          onChange={handleTextChange}
-          rows="3"
-          cols="63"
-          placeholder={props.labelValue}
-        />
+          (props.inputTypeTextArea[props.labelInput] && editable) && 
+          <div>
+            <textarea
+              value={text}
+              onChange={handleTextChange}
+              rows="3"
+              cols="63"
+              placeholder={props.labelValue}
+            />
+            <button type="submit" className="btn btn-outline-primary" onClick={saveInfo}>Save Info</button>
+           </div>
         }
         {
-          (props.inputTypeTextArea[props.labelInput] && props.readOnlyCheck[props.labelInput]) && <textarea
-          value={props.labelValue}
-          rows="3"
-          cols="63"
-        />
+          (props.inputTypeTextArea[props.labelInput] && !editable) && 
+          <div>
+            <textarea
+              value={text}
+              rows="3"
+              cols="63"
+              placeholder={props.labelValue}
+            />
+           </div>
         }
         </div>
       </MDBCol>
@@ -76,28 +115,9 @@ function PatientInfo(props){
     console.log(file);
   }
 
-  var readOnlyCheck = {
-    "PATIENT NAME" : true,
-    "PATIENT AGE":true,
-    "PATIENT ID":true,
-    "MEDICAL HISTORY":true,
-    "CURRENT MEDICATIONS":true,
-    "PREVIOUS DIAGNOSIS":true,
-    "DOCTOR NOTES":true,
-    "PATIENT NOTES":true
-  }
-
   var inputTypeTextArea = {
     "DOCTOR NOTES":true,
     "PATIENT NOTES":true
-  }
-
-  if(view == "DoctorView"){
-    readOnlyCheck['DOCTOR NOTES'] = false;
-  }
-
-  if(view == "PatientView"){
-    readOnlyCheck['PATIENT NOTES'] = false;
   }
 
   const fields = ["PATIENT NAME",
@@ -110,37 +130,27 @@ function PatientInfo(props){
     "PATIENT NOTES"
   ];
 
-  const fieldValues = [
-  "Alex",
-  "23",
-  "P12345",
-  "TB",
-  "axylone",
-  "xyz",
-  "Patient depressed \n needs help",
-  "N/A"
-];
+  var fieldValues = [];
+  axios.get('http://localhost:8000/patients/' + props.patientId,
+  {headers:{token : props.token}, params:{id : props.patientId}}
+  ).then(response => {
+    fieldValues = response.data.list;
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
   return (
-
     <div>
-
       {fields.map((fieldName,index) => {
         return SingleTextBox({
           'labelInput':fieldName,
           'labelValue':fieldValues[index],
-          'readOnlyCheck':readOnlyCheck,
-          'inputTypeTextArea':inputTypeTextArea
+          'inputTypeTextArea':inputTypeTextArea,
+          'UI':view
         })
       })}
-
-      <div className='Upload'>
-        <input type="file" onChange={handleChange}/>
-        <button type="submit" className="btn btn-outline-primary">Upload</button>
-      </div>
-
     </div>
-    
   );
 }
 

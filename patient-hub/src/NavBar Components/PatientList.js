@@ -6,24 +6,20 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/PatientList.css'
 import axios from 'axios';
 
-    const patientlist=[
-      {
-          Name:"Pranoy",
-          id:"1",
-      },{
-          Name:"Pranoy Pranoy Dev Dev",
-          id:"2",
-      },{
-          Name:"PD",
-          id:"3",
-      }
-  ];
-
 function PatientList(props){
 
-    const id = props.id;
+  const patientlist = [];
+  axios.get('http://localhost:8000/doctors/' + props.id + '/patients',
+  {headers:{token : props.token}, params:{id : props.id}}
+  ).then(response => {
+    patientlist = response.data.list;
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
-    function PatientEntry({inputPatientId,inputPatientName}){
+  const id = props.id;
+  function PatientEntry({inputPatientId,inputPatientName}){
       const [NamePatient, setPatientName] = useState(inputPatientName);
       const [IdPatient, setPatientId] = useState(inputPatientId);
    
