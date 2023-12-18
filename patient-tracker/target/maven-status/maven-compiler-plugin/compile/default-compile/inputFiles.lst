@@ -1,21 +1,33 @@
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\service\PatientService.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\model\MedicalRecord.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\PatientTrackerApplication.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\controller\DoctorController.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\model\Patient.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\service\AppointmentService.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\repository\MedicalRecordRepository.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\model\Appointment.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\service\UserAccountService.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\service\DoctorService.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\controller\UserAccountController.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\controller\PatientController.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\repository\PatientRepository.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\model\Doctor.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\repository\AppointmentRepository.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\controller\AppointmentController.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\repository\DoctorRepository.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\controller\MedicalRecordController.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\repository\UserAccountRepository.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\service\MedicalRecordService.java
-C:\0. PERSONAL\3. UMASS\Fall 23\CS 520\Project\Patient_Tracker_System_CS520\patient-tracker\src\main\java\com\fivetwenty\patienttracker\model\UserAccount.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/model/Doctor.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/config/SwaggerConfig.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/util/Role.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/repository/AppointmentRepository.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/repository/PatientRepository.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/UserAccountController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/PatientTrackerApplication.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/model/MedicalRecord.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/service/AppointmentService.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/MedicalRecordController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/model/Patient.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/DoctorController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/PatientController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/AuthController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/service/MedicalRecordService.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/repository/MedicalRecordRepository.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/service/UserAccountService.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/response/DoctorAppointmentResponse.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/config/SecurityConfig.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/service/DoctorService.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/util/CustomAuthManager.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/controller/AppointmentController.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/model/Appointment.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/repository/DoctorRepository.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/model/UserAccount.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/service/PatientService.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/response/AppointmentDetails.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/response/DoctorScheduleSlot.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/util/JwtUtil.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/response/PatientDetailsResponse.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/response/DoctorScheduleResponse.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/util/AuthFilter.java
+/Users/meghashishodia/Desktop/520/Patient_Tracker_System/patient-tracker/src/main/java/com/fivetwenty/patienttracker/repository/UserAccountRepository.java

@@ -1,0 +1,10 @@
+com/fivetwenty/patienttracker/controller/AppointmentControllerTest.class
+com/fivetwenty/patienttracker/service/AppointmentServiceTest.class
+com/fivetwenty/patienttracker/service/MedicalRecordServiceTest.class
+com/fivetwenty/patienttracker/PatientTrackerApplicationTests.class
+com/fivetwenty/patienttracker/model/AppointmentTest.class
+com/fivetwenty/patienttracker/util/JwtUtilTest.class
+com/fivetwenty/patienttracker/model/MedicalRecordTest.class
+com/fivetwenty/patienttracker/controller/PatientControllerTest.class
+com/fivetwenty/patienttracker/service/UserAccountServiceTest.class
+com/fivetwenty/patienttracker/util/CustomAuthManagerTest.class
